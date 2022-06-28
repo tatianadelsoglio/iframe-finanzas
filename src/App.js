@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Finanzas from "./components/ui/finanazas/Finanzas";
+import Finanzas from "./components/ui/finanzas/Finanzas";
 
 
 const App = () => {
