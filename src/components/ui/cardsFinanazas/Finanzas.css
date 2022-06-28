@@ -1,11 +1,16 @@
 @import "antd/dist/antd.css";
 
+.div_wrapper{
+    margin-top: 2px;
+    margin-left: 15px;
+    width: 98vw;
+}
+
 .div_content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100vw;
-    border: 3px solid #efefef;
+    border: 2px solid #efefef;
 }
 
 .div_cards{
@@ -47,7 +52,7 @@ span{
 .img{
     margin-top: 10px;
     margin-left: -50%;
-    font-size: 50px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
 }

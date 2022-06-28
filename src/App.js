@@ -1,12 +1,12 @@
 import "./App.css";
 import React from "react";
-import CardPesos from "./components/ui/cardsFinanazas/CardPesos";
+import Finanzas from "./components/ui/cardsFinanazas/Finanzas";
 
 
 const App = () => {
   return (
     <>
-      <CardPesos/>
+      <Finanzas/>
     </>
   );
 };
