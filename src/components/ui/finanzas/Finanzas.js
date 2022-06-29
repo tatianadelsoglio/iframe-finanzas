@@ -8,6 +8,10 @@ import {
   GiTicket,
   GiWheat,
 } from "react-icons/gi";
+import { GET_FINANZAS } from "../../../graphql/query/Finanzas";
+
+
+
 
 const { TabPane } = Tabs;
 
@@ -16,6 +20,20 @@ const onChange = (key) => {
 };
 
 const Finanzas = () => {
+
+  const { data, loading, error } = useQuery(GET_FINANZAS, {
+    variables: { idCliente: Number(idCliente) },
+  });
+
+  useEffect(() => {
+    const finanzas = JSON.parse(data.getAgroConsolidadoIframeResolver);
+
+    
+
+  }, [data])
+  
+
+
   return (
     <>
       <div className="div_wrapper">
