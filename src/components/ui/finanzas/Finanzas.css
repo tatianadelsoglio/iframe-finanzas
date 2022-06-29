@@ -6,11 +6,19 @@
     width: 98vw;
 }
 
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #00b33c;
+}
+
+.ant-tabs-tab.ant-tabs-tab:hover .ant-tabs-tab-btn {
+    color: #00b33c;
+}
+
 .div_content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 2px solid #efefef;
+    /* border: 2px solid #efefef; */
 }
 
 .div_cards{
