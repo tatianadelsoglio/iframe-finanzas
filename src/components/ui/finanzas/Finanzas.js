@@ -109,16 +109,12 @@ const Finanzas = () => {
             {/* SALDOS */}
             <div className="div_content">
               <div className="div_cards">
-                <div className="card card_vencido">
+                <div className="card">
                   <div className="card_interna">
-                    <div className="img">
-                      <GiMoneyStack color="00b33c" />
-                    </div>
-
+                    <GiMoneyStack className="img" color="00b33c" />
                     <div className="card1">
                       <span>$ {saldoVencido}</span>
-                      <h4>SALDO VENCIDO</h4>
-                      
+                      <h4>SALDO VENCIDO</h4>                    
                     </div>
                   </div>
                 </div>
@@ -127,7 +123,7 @@ const Finanzas = () => {
                 <Divider className="divider" type="vertical" />
               </div>
               <div className="div_cards">
-                <div className="centrar card_aVencer">
+                <div className="centrar">
                   <span>$ {saldoAVencer} </span>
                   <h4>SALDO A VENCER</h4>
                 </div>
@@ -188,7 +184,7 @@ const Finanzas = () => {
                 </Card>
               </div>
               <div className="div_cards">
-                <Card className="card card_total">
+                <Card className="card card_total ultima_card">
                   <div className="centrar card_total">
                     <span>${cerealdisponible}</span>
                     <h4>CEREAL DISPONIBLE</h4>
@@ -315,7 +311,7 @@ const Finanzas = () => {
                 </Card>
               </div>
               <div className="div_cards">
-                <Card className="card card_total">
+                <Card className="card card_total ultima_card">
                   <div className="centrar card_total">
                     <span>$0</span>
                     <h4>CEREAL DISPONIBLE</h4>

@@ -29,6 +29,7 @@
 
 .div_cards{
     width: 34%;
+    
 }
 
 .card{
@@ -39,6 +40,11 @@
     border-left: 0px;
     border-top: 0px;
     border-bottom: 0px;
+    
+}
+
+.ultima_card{
+    border-right: 0px;
 }
 
 .centrar{
@@ -47,6 +53,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .card_interna{
@@ -54,16 +61,13 @@
     justify-content: center;
     align-items: center; 
     flex-direction: row;
-}
-
-h3{
-    font-size: 24px;
-    font-weight: 600;
+    
 }
 
 span{
     font-size: 24px;
     font-weight: 600;
+    
 }
 
 .img{
@@ -72,6 +76,7 @@ span{
     font-size: 30px;
     display: flex;
     justify-content: center;
+    
 }
 
 .card1{
@@ -79,10 +84,15 @@ span{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 50%;
+    margin-left: 20%;
+    
 }
 
 .divider{
     margin-top: 20px;
     font-size: 100px;
 }
+
+/* div{
+    border: 1px dashed red;
+} */
