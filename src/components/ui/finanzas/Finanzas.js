@@ -233,7 +233,7 @@ const Finanzas = () => {
               </div>
             </div>
           </TabPane>
-          <TabPane tab="Dolar" disabled key="2">
+          <TabPane tab="Dolar" key="2">
             {/* SALDOS */}
             <div className="div_content">
               <div className="div_cards">

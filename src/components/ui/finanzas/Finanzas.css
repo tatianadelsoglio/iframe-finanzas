@@ -1,5 +1,9 @@
 @import "antd/dist/antd.css";
 
+:root{
+    border-bottom-style: #00b33c;
+}
+
 .div_wrapper{
     margin-top: 2px;
     margin-left: 15px;
@@ -8,6 +12,7 @@
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #00b33c;
+    
 }
 
 .ant-tabs-tab.ant-tabs-tab:hover .ant-tabs-tab-btn {
