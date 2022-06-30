@@ -20,6 +20,10 @@
     color: #00b33c;
 }
 
+.ant-tabs-nav-list{
+    color: #00b33c;
+}
+
 .div_content{
     display: flex;
     flex-direction: row;
