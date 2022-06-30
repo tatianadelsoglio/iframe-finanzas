@@ -147,7 +147,7 @@ const Finanzas = () => {
             <div className="div_content">
               <div className="div_cards">
                 <Card className="card card_vencido">
-                  <div className="card_interna">
+                  <div className="card_interna otra_info">
                     <div className="img">
                       <GiTicket color="00b33c" />
                     </div>
@@ -161,7 +161,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card card_aVencer">
-                  <div className="card_interna">
+                  <div className="card_interna otra_info">
                     <div className="img">
                       <GiJerrycan color="00b33c" />
                     </div>
@@ -175,7 +175,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card card_total">
-                  <div className="card_interna">
+                  <div className="card_interna otra_info">
                     <div className="img">
                       <GiWheat color="00b33c" />
                     </div>
@@ -189,7 +189,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card card_total">
-                  <div className="centrar card_total">
+                  <div className="centrar card_total otra_info2">
                     <span>${cerealdisponible}</span>
                     <h4>CEREAL DISPONIBLE</h4>
                   </div>
