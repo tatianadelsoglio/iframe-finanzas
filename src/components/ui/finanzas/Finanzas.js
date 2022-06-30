@@ -236,7 +236,7 @@ const Finanzas = () => {
                 <div className="card">
                   <div className="card_interna">
                     <div className="img">
-                      <GiMoneyStack />
+                      <GiMoneyStack color="00b33c" />
                     </div>
 
                     <div className="card1">
