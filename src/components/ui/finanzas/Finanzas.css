@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 2px solid #efefef;
+    border-bottom: 1px solid #efefef;
 }
 
 .div_cards{
@@ -36,6 +36,9 @@
     display: flex;
     justify-content: center;
     align-items: center;    
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
 }
 
 .centrar{
