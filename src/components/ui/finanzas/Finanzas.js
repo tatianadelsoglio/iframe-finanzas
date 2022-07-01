@@ -121,7 +121,7 @@ const Finanzas = () => {
                   <div className="card_interna">
                     <GiMoneyStack className="img" color="00b33c" />
                     <div className="card1">
-                      <span>$ {saldoVencido ? saldoVencido : 0}</span>
+                      <span>$ {estadoFinanza ? saldoVencido : 0}</span>
                       <h4>SALDO VENCIDO</h4>                    
                     </div>
                   </div>
@@ -132,7 +132,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>$ {saldoAVencer ? saldoAVencer : 0} </span>
+                  <span>$ {estadoFinanza ? saldoAVencer : 0} </span>
                   <h4>SALDO A VENCER</h4>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${saldoTotal ? saldoTotal : 0}</span>
+                  <span>${estadoFinanza ? saldoTotal : 0}</span>
                   <h4>SALDO TOTAL</h4>
                 </div>
               </div>
@@ -157,7 +157,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${chequeCartera ? chequeCartera : 0}</span>
+                      <span>${estadoFinanza ? chequeCartera : 0}</span>
                       <h4>CH. EN CARTERA</h4>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${pendFacturar ? pendFacturar : 0}</span>
+                      <span>${estadoFinanza ? pendFacturar : 0}</span>
                       <h4>PEND. FACTURAR</h4>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${forward ? forward : 0}</span>
+                      <span>${estadoFinanza ? forward : 0}</span>
                       <h4>VENTAS FORWARD</h4>
                     </div>
                   </div>
@@ -194,7 +194,7 @@ const Finanzas = () => {
               <div className="div_cards">
                 <Card className="card ultima_card">
                   <div className="centrar">
-                    <span>${cerealdisponible ? cerealdisponible : 0}</span>
+                    <span>${estadoFinanza ? cerealdisponible : 0}</span>
                     <h4>CEREAL DISPONIBLE</h4>
                   </div>
                 </Card>
@@ -211,7 +211,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${creditoTotal ? creditoTotal : 0}</span>
+                      <span>${estadoFinanza ? creditoTotal : 0}</span>
                       <h4>CRÉDITO TOTAL</h4>
                     </div>
                   </div>
@@ -222,7 +222,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${acuerdocredito ? acuerdocredito : 0}</span>
+                  <span>${estadoFinanza ? acuerdocredito : 0}</span>
                   <h4>ACUERDO DE CRÉDITO</h4>
                 </div>
               </div>
@@ -231,7 +231,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${creditoDisponible ? creditoDisponible : 0}</span>
+                  <span>${estadoFinanza ? creditoDisponible : 0}</span>
                   <h4>CRÉDITO DISPONIBLE</h4>
                 </div>
               </div>
