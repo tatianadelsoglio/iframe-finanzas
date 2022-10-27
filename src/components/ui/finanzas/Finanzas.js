@@ -11,16 +11,11 @@ import {
 import { useQuery } from "@apollo/client";
 import { GET_FINANZAS } from "../../../graphql/query/Finanzas";
 
-
-
-
 const { TabPane } = Tabs;
 
 const onChange = (key) => {
   console.log(key);
 };
-
-
 
 const Finanzas = () => {
   const url = window.location.search;
@@ -43,70 +38,88 @@ const Finanzas = () => {
     variables: { idCliente: Number(idCliente) },
   });
 
-
+  //idCliente=2845 no tiene valores pero funciona
+  //idCliente=3663 no tiene valores pero no funciona
+  //idCliente=2773 tiene valores y funciona
 
   useEffect(() => {
-
-    if (data){
-
-      const {getAgroConsolidadoIframeResolver} = data;
+    if (data) {
+      const { getAgroConsolidadoIframeResolver } = data;
       const finanzas = JSON.parse(getAgroConsolidadoIframeResolver);
-      //console.log(finanzas);
+      console.log(finanzas.agroCli)
 
-      setEstadoFinanza(finanzas.agroCli);
+      if (finanzas.agroCli && (finanzas.agroCli !== null || finanzas.agroCli !== "")) {
+        console.log("finanzas tiene contenido");
+        setEstadoFinanza(finanzas.agroCli);
 
-      //console.log(finanzas.agroCli.conca_saldovencido);
+        //console.log(finanzas.agroCli.conca_saldovencido);
 
-      //Saldo Vencido
-      setSaldoVencido(Math.trunc(finanzas.agroCli.conca_saldovencido).toLocaleString('de-DE'));
-      const SaldoVencido = finanzas.agroCli.conca_saldovencido;
-
-      //Saldo A Vencer
-      setSaldoAVencer(Math.trunc(finanzas.agroCli.conca_saldoavencer).toLocaleString('de-DE'));
-      const SaldoAVencer = finanzas.agroCli.conca_saldoavencer;
-      
-      //Saldo Total
-      const SaldoTotal = SaldoVencido + SaldoAVencer;
-      setSaldoTotal(Math.trunc(SaldoTotal).toLocaleString('de-DE'));      
-
-      //Ch. en Cartera
-      setChequeCartera(Math.trunc(finanzas.agroCli.conca_chequescartera).toLocaleString('de-DE'));
-      const ChequeCartera = finanzas.agroCli.conca_chequescartera;
-
-      //Pend. Facturar
-      setPendFacturar(Math.trunc(finanzas.agroCli.conca_pendfacturar).toLocaleString('de-DE'));
-      const PendFacturar = finanzas.agroCli.conca_pendfacturar;
-
-      //Ventas Forward
-      setForward(Math.trunc(finanzas.agroCli.conca_forward).toLocaleString('de-DE'));
-      const Forward = finanzas.agroCli.conca_forward;
-
-      //Cereal Disponible
-      setCerealDisponible(Math.trunc(finanzas.agroCli.conca_cerealdisponible).toLocaleString('de-DE'));
-      const CerealDisponible = finanzas.agroCli.conca_cerealdisponible;
-
-      //Cheque Garantia
-      const ChequeGarantia = finanzas.agroCli.conca_chequesgarantia;
-
-      //Credito Total
-      const CreditoTotal = SaldoTotal + ChequeCartera + PendFacturar + Forward - CerealDisponible + ChequeGarantia;
-      setCreditoTotal(Math.trunc(CreditoTotal).toLocaleString('de-DE'));
+        //Saldo Vencido          
+        setSaldoVencido(Math.trunc(finanzas.agroCli.conca_saldovencido).toLocaleString("de-DE"));
+        const SaldoVencido = finanzas.agroCli.conca_saldovencido;
 
 
-      
+        //Saldo A Vencer
+        setSaldoAVencer(Math.trunc(finanzas.agroCli.conca_saldoavencer).toLocaleString("de-DE"));
+        const SaldoAVencer = finanzas.agroCli.conca_saldoavencer;
 
-      //Acuerdo Credito
-      const AcuerdoC = finanzas.agroCli.conca_acuerdocredito;      
-      setAcuerdoCredito(Math.trunc(AcuerdoC).toLocaleString('de-DE'));
+        //Saldo Total
+        const SaldoTotal = SaldoVencido + SaldoAVencer;
+        setSaldoTotal(Math.trunc(SaldoTotal).toLocaleString("de-DE"));
 
-      //Credito Disponible
-      const CreditoDisp = AcuerdoC - CreditoTotal;
-      setCreditoDisponible(Math.trunc(CreditoDisp).toLocaleString('de-DE'));
+        //Ch. en Cartera
+        setChequeCartera(
+          Math.trunc(finanzas.agroCli.conca_chequescartera).toLocaleString("de-DE"));
+        const ChequeCartera = finanzas.agroCli.conca_chequescartera;
+
+        //Pend. Facturar
+        setPendFacturar(
+          Math.trunc(finanzas.agroCli.conca_pendfacturar).toLocaleString("de-DE"));
+        const PendFacturar = finanzas.agroCli.conca_pendfacturar;
+
+        //Ventas Forward
+        setForward(
+          Math.trunc(finanzas.agroCli.conca_forward).toLocaleString("de-DE")
+        );
+        const Forward = finanzas.agroCli.conca_forward;
+
+        //Cereal Disponible
+        setCerealDisponible(
+          Math.trunc(finanzas.agroCli.conca_cerealdisponible).toLocaleString("de-DE"));
+        const CerealDisponible = finanzas.agroCli.conca_cerealdisponible;
+
+        //Cheque Garantia
+        const ChequeGarantia = finanzas.agroCli.conca_chequesgarantia;
+
+        //Credito Total
+        const CreditoTotal = SaldoTotal + ChequeCartera + PendFacturar + Forward - CerealDisponible + ChequeGarantia;
+        setCreditoTotal(Math.trunc(CreditoTotal).toLocaleString("de-DE"));
+
+        //Acuerdo Credito
+        const AcuerdoC = finanzas.agroCli.conca_acuerdocredito;
+        setAcuerdoCredito(Math.trunc(AcuerdoC).toLocaleString("de-DE"));
+
+        //Credito Disponible
+        const CreditoDisp = AcuerdoC - CreditoTotal;
+        setCreditoDisponible(Math.trunc(CreditoDisp).toLocaleString("de-DE"));
+
+      } else {
+        console.log("finanzas no tiene contenido");
+        setEstadoFinanza(0);
+        setSaldoVencido(0);
+        setSaldoAVencer(0);
+        setSaldoTotal(0);
+        setChequeCartera(0);
+        setPendFacturar(0);
+        setForward(0);
+        setCerealDisponible(0);
+        setCreditoTotal(0);
+        setAcuerdoCredito(0);
+        setCreditoDisponible(0);
+      }
     }
+  }, [data]);
 
-    
-  }, [data])
-  
   return (
     <>
       <div className="div_wrapper">
@@ -120,7 +133,7 @@ const Finanzas = () => {
                     <GiMoneyStack className="img" color="00b33c" />
                     <div className="card1">
                       <span>$ {saldoVencido}</span>
-                      <h4>SALDO VENCIDO</h4>                    
+                      <h4>SALDO VENCIDO</h4>
                     </div>
                   </div>
                 </div>
