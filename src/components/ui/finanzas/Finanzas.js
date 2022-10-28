@@ -347,7 +347,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${saldoVencidoUs}</span>
+                      <span>U$S {saldoVencidoUs}</span>
                       <h4>SALDO VENCIDO</h4>
                     </div>
                   </div>
@@ -358,7 +358,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${saldoAVencerUs}</span>
+                  <span>U$S {saldoAVencerUs}</span>
                   <h4>SALDO A VENCER</h4>
                 </div>
               </div>
@@ -367,7 +367,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${saldoTotalUs}</span>
+                  <span>U$S {saldoTotalUs}</span>
                   <h4>SALDO TOTAL</h4>
                 </div>
               </div>
@@ -383,7 +383,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${chequeCarteraUs}</span>
+                      <span>U$S {chequeCarteraUs}</span>
                       <h4>CH. EN CARTERA</h4>
                     </div>
                   </div>
@@ -397,7 +397,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${pendFacturarUs}</span>
+                      <span>U$S {pendFacturarUs}</span>
                       <h4>PEND. FACTURAR</h4>
                     </div>
                   </div>
@@ -411,7 +411,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${forwardUs}</span>
+                      <span>U$S {forwardUs}</span>
                       <h4>VENTAS FORWARD</h4>
                     </div>
                   </div>
@@ -420,7 +420,7 @@ const Finanzas = () => {
               <div className="div_cards">
                 <Card className="card ultima_card">
                   <div className="centrar card_total">
-                    <span>${cerealdisponibleUs}</span>
+                    <span>U$S {cerealdisponibleUs}</span>
                     <h4>CEREAL DISPONIBLE</h4>
                   </div>
                 </Card>
@@ -437,7 +437,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>${creditoTotalUs}</span>
+                      <span>U$S {creditoTotalUs}</span>
                       <h4>CRÉDITO TOTAL</h4>
                     </div>
                   </div>
@@ -448,7 +448,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${acuerdocreditoUs}</span>
+                  <span>U$S {acuerdocreditoUs}</span>
                   <h4>ACUERDO DE CRÉDITO</h4>
                 </div>
               </div>
@@ -457,7 +457,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>${creditoDisponibleUs}</span>
+                  <span>U$S {creditoDisponibleUs}</span>
                   <h4>CRÉDITO DISPONIBLE</h4>
                 </div>
               </div>
