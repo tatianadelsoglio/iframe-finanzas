@@ -13,15 +13,13 @@ import { GET_FINANZAS } from "../../../graphql/query/Finanzas";
 
 const { TabPane } = Tabs;
 
-const onChange = (key) => {
-  console.log(key);
-};
 
 const Finanzas = () => {
   const url = window.location.search;
   const urlParameter = url.split("=");
   const idCliente = urlParameter[1];
 
+  //PESO
   const [estadoFinanza, setEstadoFinanza] = useState([]);
   const [saldoVencido, setSaldoVencido] = useState();
   const [saldoAVencer, setSaldoAVencer] = useState();
@@ -33,6 +31,19 @@ const Finanzas = () => {
   const [creditoTotal, setCreditoTotal] = useState();
   const [acuerdocredito, setAcuerdoCredito] = useState();
   const [creditoDisponible, setCreditoDisponible] = useState();
+
+  //DOLAR
+  const [estadoFinanzaUs, setEstadoFinanzaUs] = useState([]);
+  const [saldoVencidoUs, setSaldoVencidoUs] = useState();
+  const [saldoAVencerUs, setSaldoAVencerUs] = useState();
+  const [saldoTotalUs, setSaldoTotalUs] = useState();
+  const [chequeCarteraUs, setChequeCarteraUs] = useState();
+  const [pendFacturarUs, setPendFacturarUs] = useState();
+  const [forwardUs, setForwardUs] = useState();
+  const [cerealdisponibleUs, setCerealDisponibleUs] = useState();
+  const [creditoTotalUs, setCreditoTotalUs] = useState();
+  const [acuerdocreditoUs, setAcuerdoCreditoUs] = useState();
+  const [creditoDisponibleUs, setCreditoDisponibleUs] = useState();
 
   const { data, loading, error } = useQuery(GET_FINANZAS, {
     variables: { idCliente: Number(idCliente) },
@@ -46,8 +57,10 @@ const Finanzas = () => {
     if (data) {
       const { getAgroConsolidadoIframeResolver } = data;
       const finanzas = JSON.parse(getAgroConsolidadoIframeResolver);
-      console.log(finanzas.agroCli)
+      console.log(finanzas)
+      console.log("agroCli: ",finanzas.agroCli)
 
+      //PESO
       if (finanzas.agroCli && (finanzas.agroCli !== null || finanzas.agroCli !== "")) {
         console.log("finanzas tiene contenido");
         setEstadoFinanza(finanzas.agroCli);
@@ -117,13 +130,88 @@ const Finanzas = () => {
         setAcuerdoCredito(0);
         setCreditoDisponible(0);
       }
+
+      //Dolar
+      if (finanzas.agroCliUS && (finanzas.agroCliUS !== null || finanzas.agroCliUS !== "")) {
+        console.log("finanzas dolar tiene contenido");
+        console.log("agroCliUS: ", finanzas.agroCliUS);
+        setEstadoFinanzaUs(finanzas.agroCliUS);
+
+        //console.log(finanzas.agroCli.conca_saldovencido);
+
+        //Saldo Vencido          
+        setSaldoVencidoUs(Math.trunc(finanzas.agroCliUS.conca_saldovencido).toLocaleString("de-DE"));
+        const SaldoVencidoUs = finanzas.agroCliUS.conca_saldovencido;
+
+
+        //Saldo A Vencer
+        setSaldoAVencerUs(Math.trunc(finanzas.agroCliUS.conca_saldoavencer).toLocaleString("de-DE"));
+        const SaldoAVencerUs = finanzas.agroCliUS.conca_saldoavencer;
+
+        //Saldo Total
+        const SaldoTotalUs = SaldoVencidoUs + SaldoAVencerUs;
+        setSaldoTotalUs(Math.trunc(SaldoTotalUs).toLocaleString("de-DE"));
+
+        //Ch. en Cartera
+        setChequeCarteraUs(
+          Math.trunc(finanzas.agroCliUS.conca_chequescartera).toLocaleString("de-DE"));
+        const ChequeCarteraUs = finanzas.agroCliUS.conca_chequescartera;
+
+        //Pend. Facturar
+        setPendFacturarUs(
+          Math.trunc(finanzas.agroCliUS.conca_pendfacturar).toLocaleString("de-DE"));
+        const PendFacturarUs = finanzas.agroCliUS.conca_pendfacturar;
+
+        //Ventas Forward
+        setForwardUs(
+          Math.trunc(finanzas.agroCliUS.conca_forward).toLocaleString("de-DE")
+        );
+        const ForwardUs = finanzas.agroCliUS.conca_forward;
+
+        //Cereal Disponible
+        setCerealDisponibleUs(
+          Math.trunc(finanzas.agroCliUS.conca_cerealdisponible).toLocaleString("de-DE"));
+        const CerealDisponibleUs = finanzas.agroCliUS.conca_cerealdisponible;
+
+        //Cheque Garantia
+        const ChequeGarantiaUs = finanzas.agroCliUS.conca_chequesgarantia;
+
+        //Credito Total
+        const CreditoTotalUs = SaldoTotalUs + ChequeCarteraUs + PendFacturarUs + ForwardUs - CerealDisponibleUs + ChequeGarantiaUs;
+        setCreditoTotalUs(Math.trunc(CreditoTotalUs).toLocaleString("de-DE"));
+
+        //Acuerdo Credito
+        const AcuerdoCUs = finanzas.agroCliUS.conca_acuerdocredito;
+        setAcuerdoCreditoUs(Math.trunc(AcuerdoCUs).toLocaleString("de-DE"));
+
+        //Credito Disponible
+        const CreditoDispUs = AcuerdoCUs - CreditoTotalUs;
+        setCreditoDisponibleUs(Math.trunc(CreditoDispUs).toLocaleString("de-DE"));
+
+      } else {
+        console.log("finanzas dolar no tiene contenido");
+        setEstadoFinanzaUs(0);
+        setSaldoVencidoUs(0);
+        setSaldoAVencerUs(0);
+        setSaldoTotalUs(0);
+        setChequeCarteraUs(0);
+        setPendFacturarUs(0);
+        setForwardUs(0);
+        setCerealDisponibleUs(0);
+        setCreditoTotalUs(0);
+        setAcuerdoCreditoUs(0);
+        setCreditoDisponibleUs(0);
+      }
+
+
+      
     }
   }, [data]);
 
   return (
     <>
       <div className="div_wrapper">
-        <Tabs defaultActiveKey="1" onChange={onChange}>
+        <Tabs defaultActiveKey="1">
           <TabPane tab="Peso" key="1">
             {/* SALDOS */}
             <div className="div_content">
@@ -248,7 +336,7 @@ const Finanzas = () => {
               </div>
             </div>
           </TabPane>
-          <TabPane tab="Dolar" disabled key="2">
+          <TabPane tab="Dolar" key="2">
             {/* SALDOS */}
             <div className="div_content">
               <div className="div_cards">
@@ -259,7 +347,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>$0</span>
+                      <span>${saldoVencidoUs}</span>
                       <h4>SALDO VENCIDO</h4>
                     </div>
                   </div>
@@ -270,7 +358,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>$0</span>
+                  <span>${saldoAVencerUs}</span>
                   <h4>SALDO A VENCER</h4>
                 </div>
               </div>
@@ -279,7 +367,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>$0</span>
+                  <span>${saldoTotalUs}</span>
                   <h4>SALDO TOTAL</h4>
                 </div>
               </div>
@@ -295,7 +383,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>$0</span>
+                      <span>${chequeCarteraUs}</span>
                       <h4>CH. EN CARTERA</h4>
                     </div>
                   </div>
@@ -309,7 +397,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>$0</span>
+                      <span>${pendFacturarUs}</span>
                       <h4>PEND. FACTURAR</h4>
                     </div>
                   </div>
@@ -323,7 +411,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>$0</span>
+                      <span>${forwardUs}</span>
                       <h4>VENTAS FORWARD</h4>
                     </div>
                   </div>
@@ -332,7 +420,7 @@ const Finanzas = () => {
               <div className="div_cards">
                 <Card className="card ultima_card">
                   <div className="centrar card_total">
-                    <span>$0</span>
+                    <span>${cerealdisponibleUs}</span>
                     <h4>CEREAL DISPONIBLE</h4>
                   </div>
                 </Card>
@@ -349,7 +437,7 @@ const Finanzas = () => {
                     </div>
 
                     <div className="card1">
-                      <span>$0</span>
+                      <span>${creditoTotalUs}</span>
                       <h4>CRÉDITO TOTAL</h4>
                     </div>
                   </div>
@@ -360,7 +448,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>$0</span>
+                  <span>${acuerdocreditoUs}</span>
                   <h4>ACUERDO DE CRÉDITO</h4>
                 </div>
               </div>
@@ -369,7 +457,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <div className="centrar">
-                  <span>$0</span>
+                  <span>${creditoDisponibleUs}</span>
                   <h4>CRÉDITO DISPONIBLE</h4>
                 </div>
               </div>
