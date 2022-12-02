@@ -250,7 +250,7 @@ const Finanzas = () => {
             <div className="div_content">
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiTicket color="00b33c" />
                     </div>
@@ -264,7 +264,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiJerrycan color="00b33c" />
                     </div>
@@ -278,7 +278,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiWheat color="00b33c" />
                     </div>
@@ -377,7 +377,7 @@ const Finanzas = () => {
             <div className="div_content">
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiTicket color="00b33c" />
                     </div>
@@ -391,7 +391,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiJerrycan color="00b33c" />
                     </div>
@@ -405,7 +405,7 @@ const Finanzas = () => {
               </div>
               <div className="div_cards">
                 <Card className="card">
-                  <div className="card_interna">
+                  <div className="card_interna" style={{marginLeft:"22%"}}>
                     <div className="img">
                       <GiWheat color="00b33c" />
                     </div>
