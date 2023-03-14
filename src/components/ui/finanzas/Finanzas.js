@@ -56,13 +56,13 @@ const Finanzas = () => {
     if (data) {
       const { getAgroConsolidadoIframeResolver } = data;
       const finanzas = JSON.parse(getAgroConsolidadoIframeResolver);
-      console.log(finanzas);
+      //console.log(finanzas);
       //console.log("agroCli: ",finanzas.agroCli);
 
 
       //PESO
       if (finanzas === null) {
-        console.log("finanzas no tiene contenido");
+        console.log("finanzas pesos no tiene contenido");
         setEstadoFinanza(0);
         setSaldoVencido(0);
         setSaldoAVencer(0);
@@ -80,8 +80,8 @@ const Finanzas = () => {
           finanzas.agroCli &&
           (finanzas.agroCli !== null || finanzas.agroCli !== "")
         ) {
-          console.log("agroCli: ",finanzas.agroCli);
-          console.log("finanzas tiene contenido");
+          //console.log("agroCli: ",finanzas.agroCli);
+          console.log("finanzas pesos ARG tiene contenido");
           setEstadoFinanza(finanzas.agroCli);
 
           //console.log(finanzas.agroCli.conca_saldovencido);
@@ -157,7 +157,7 @@ const Finanzas = () => {
           const CreditoDisp = AcuerdoC - CreditoTotal;
           setCreditoDisponible(Math.trunc(CreditoDisp).toLocaleString("de-DE"));
         } else {
-          console.log("finanzas no tiene contenido");
+          console.log("finanzas pesos ARG no tiene contenido");
           setEstadoFinanza(0);
           setSaldoVencido(0);
           setSaldoAVencer(0);
@@ -192,7 +192,7 @@ const Finanzas = () => {
           (finanzas.agroCliUS !== null || finanzas.agroCliUS !== "")
         ) {
           console.log("finanzas dolar tiene contenido");
-          console.log("agroCliUS: ", finanzas.agroCliUS);
+          //console.log("agroCliUS: ", finanzas.agroCliUS);
           setEstadoFinanzaUs(finanzas.agroCliUS);
 
           //console.log(finanzas.agroCli.conca_saldovencido);
