@@ -81,7 +81,7 @@ const Finanzas = () => {
           (finanzas.agroCli !== null || finanzas.agroCli !== "")
         ) {
           //console.log("agroCli: ",finanzas.agroCli);
-          console.log("finanzas pesos ARG tiene contenido");
+          console.log("finanzas pesos ARG tiene contenido no null");
           setEstadoFinanza(finanzas.agroCli);
 
           //console.log(finanzas.agroCli.conca_saldovencido);
@@ -191,7 +191,7 @@ const Finanzas = () => {
           finanzas.agroCliUS &&
           (finanzas.agroCliUS !== null || finanzas.agroCliUS !== "")
         ) {
-          console.log("finanzas dolar tiene contenido");
+          console.log("finanzas dolar tiene contenido no null");
           //console.log("agroCliUS: ", finanzas.agroCliUS);
           setEstadoFinanzaUs(finanzas.agroCliUS);
 
