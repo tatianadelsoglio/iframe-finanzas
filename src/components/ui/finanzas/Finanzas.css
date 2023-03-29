@@ -12,7 +12,7 @@
 }
 
 .ant-tabs-tab {
-    padding: 12px 10px 4px 10px !important;
+    padding: 8px 5px 4px 5px !important;
     font-size: 14px;
 }
 
@@ -23,6 +23,10 @@
 
 .ant-tabs-tab.ant-tabs-tab:hover .ant-tabs-tab-btn {
     color: #00b33c;
+}
+
+.ant-tabs-tab + .ant-tabs-tab {
+    margin: 0 0 0 10px !important;
 }
 
 
